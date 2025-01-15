@@ -8,6 +8,7 @@ import Ejemplo2 from './hooks/Ejemplo2';
 import MiComponenteConContexto from './hooks/Ejemplo3';
 import Ejemplo4 from './hooks/Ejemplo4';
 import Ejemplo3 from './hooks/Ejemplo3';
+import GreetingStyled from './pure/greetingStyled';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
        {/*<Funciongreeting name="Iverson"></Funciongreeting>*/}
        
        {/* ejemplo de compoente aqui traje la lista de tareas*/}
-       <TaskListComponent></TaskListComponent>
+      {/* <TaskListComponent></TaskListComponent>*/}
 
        {/* ejemplo de uso de hooks*/}
       {/*<Ejemplo1></Ejemplo1>*/}
@@ -41,6 +42,9 @@ function App() {
           contenido de props.children
         </h3>
        </Ejemplo4>*/}
+
+
+       <GreetingStyled name= "iverson"></GreetingStyled>
 
 
 

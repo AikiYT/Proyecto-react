@@ -15,7 +15,7 @@ const Ejemplo1 = () => {
     // valor inicial de una persona
     const personaInicial = {
         nombre : 'Martin',
-        email : 'martin@imaginegroup.com'
+        email : 'martin@imaginegroup.com'  
     }
 
     /**
