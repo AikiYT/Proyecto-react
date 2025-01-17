@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // anadimos bootstrap a nuestro proyecto debe estar arriba del css
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-icons/font/bootstrap-icons.css'; // anadi esto para usar iconos de bootrap
 //! importante: los estilos propios deben ir debajo del bootrap para que no nos pisen
 
 import './index.css';

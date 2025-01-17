@@ -14,14 +14,14 @@ import GreetingStyled from './pure/greetingStyled';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+     {/*<header className="App-header">*/}
+        {/*<img src={logo} className="App-logo" alt="logo" />*/}
         {/* componente propio que traje de greeting.jsx y arriba lo impoorte par que no de error */}
         {/*<Greeting name="martin"></Greeting> {/* dentro del componente puedo poner una variable en este caso name que alla en el jsx se la puse mi constructor dentro del componente greetings y por eso llama a martin primero debo ponersela alla en jsx en el render*/}
        {/*<Funciongreeting name="Iverson"></Funciongreeting>*/}
        
        {/* ejemplo de compoente aqui traje la lista de tareas*/}
-      {/* <TaskListComponent></TaskListComponent>*/}
+       <TaskListComponent></TaskListComponent>
 
        {/* ejemplo de uso de hooks*/}
       {/*<Ejemplo1></Ejemplo1>*/}
@@ -44,19 +44,19 @@ function App() {
        </Ejemplo4>*/}
 
 
-       <GreetingStyled name= "iverson"></GreetingStyled>
+       {/*<GreetingStyled name= "iverson"></GreetingStyled>*/}
 
 
 
-        <a
+        {/*<a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-      </header>
+        </a>*/}
+      {/*</header>*/}
     </div>
   );
 }
