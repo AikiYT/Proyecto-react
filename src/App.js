@@ -21,7 +21,7 @@ function App() {
        {/*<Funciongreeting name="Iverson"></Funciongreeting>*/}
        
        {/* ejemplo de compoente aqui traje la lista de tareas*/}
-       {/*<TaskListComponent></TaskListComponent>*/}
+       <TaskListComponent></TaskListComponent>
 
        {/* ejemplo de uso de hooks*/}
       {/*<Ejemplo1></Ejemplo1>*/}
@@ -60,7 +60,7 @@ function App() {
 
 
 
-    <Father></Father>
+    {/*<Father></Father>*/}
 
     </div>
   );

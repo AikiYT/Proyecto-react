@@ -11,7 +11,7 @@ import { Task } from '../models/task.class';
 import { LEVELS } from '../models/levels.enum';
 
 
-const TaskComponent = ({task}) => { // esto aqui este task nos servira para poder poner tu sabe el task. tal cosa etc
+const TaskComponent = ({task, complete, remove}) => { // esto aqui este task nos servira para poder poner tu sabe el task. tal cosa etc
     
 
     useEffect(() => {
@@ -62,10 +62,10 @@ const TaskComponent = ({task}) => { // esto aqui este task nos servira para pode
 // otra funcion esta lo que hara sera eso del boton que se cambie cuando este completed o pending ya sabes
 function taskcompleted(){
     if(task.completed){
-        return (<i className='bi-toggle-on' style={{color: 'green'}}></i>)
+        return (<i onClick={() =>complete(task)} className='bi-toggle-on task-action' style={{color: 'green'}}></i>)
     }else{
-        return (<i className='bi-toggle-off' style={{color: 'red'}}></i>)
-    }
+        return (<i onClick={() =>complete(task)} className='bi-toggle-off task-action' style={{color: 'red'}}></i>)
+    }       // esos () => antes de todo lo demas es para que no me aparezca nada mas empezar el programa sino no funcionara ninguna de estas funciones
     }
 
 
@@ -99,22 +99,24 @@ function taskcompleted(){
 
                 
         {/* este icono es el rojo de basura lo traje*/}
-        (<i className='bi-trash' style={{color: 'tomato'}}></i>) 
+        <i className='bi-trash task-action' style={{color: 'tomato'}} onClick={()=> remove(task)}></i>
         
         
         
 
         </td>
 
-       </tr>
-       
-     
+    </tr>
+    
+    
     ); // en ese h5 basicamente le pregunta si esa tarea esta completafa que diga si esta o sino si esta pendiente
 };
 
 
 TaskComponent.propTypes = {
-task: PropTypes.instanceOf(Task) // instance off es cuando no le especifico si es string o algo asi en este caso quiero que sea una tarea osea task no nada de eso de string ni nada
+task: PropTypes.instanceOf(Task).isRequired, // instance off es cuando no le especifico si es string o algo asi en este caso quiero que sea una tarea osea task no nada de eso de string ni nada
+complete: PropTypes.func.isRequired,
+remove: PropTypes.func.isRequired
 };
 
 

@@ -14,12 +14,16 @@ import TaskForm from '../../pure/forms/task.Form';
 
 // aqui hice un import de Task y de Levels para poder usarlos aqui todas sus variables en este objecto llamado default task que usare ahor aen app.js pero este es el ultimo paso despues de primero crear el modelo y luego de venir del pure ahi que venir aqui a components y llamar los imports y hacer esto que dije
 const TaskListComponent = () => {
+    
     const defaultTask1 = new Task('Iverson','Estudiante', true, LEVELS.NORMAL)
     const defaultTask2 = new Task('Iverson','Estudiante', false, LEVELS.URGENTE)
     const defaultTask3 = new Task('Iverson','Estudiante', false, LEVELS.BLOCKING)
-
+    
     // estado del componente
-    const [task, setTask] = useState([defaultTask1, defaultTask2, defaultTask3])
+    const [tasks, setTask] = useState([defaultTask1, defaultTask2, defaultTask3])
+    const [loading, setLoading] = useState(true)
+    
+    
     // control del ciclo de vida
     useEffect(() => {
         console.log('task state has been modified')
@@ -27,7 +31,7 @@ const TaskListComponent = () => {
             console.log('tasklist component is going to unmount')
         }
             
-        },[Task]);
+        },[tasks]);
     
     
     //acuerdate que aqui dentro del new task estoy llamando al nombre descripcion etc acuerdate del POO
@@ -35,9 +39,34 @@ const TaskListComponent = () => {
 
 
 
-    const changeCompleted = (id) => {
-        console.log('cambiar estado de una tarea')
+    function completeTask(task){
+        console.log('Complete this task:', task)
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks[index].completed = !tempTasks[index].completed;
+        // actualizo el estado del componente
+        setTask(tempTasks)
     }
+
+    function deleteTask(task){
+        console.log('Complete this task:', task)
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks.splice(index,1);
+        setTask(tempTasks);
+    }
+
+
+    function addTask(task){
+        console.log('Complete this task:', task)
+        const index = tasks.indexOf(task);
+        const tempTasks = [...tasks];
+        tempTasks.push(task);
+        setTask(tempTasks);
+        
+    }
+
+
 
 
 
@@ -67,12 +96,17 @@ const TaskListComponent = () => {
             </thead>
             <tbody>
                 {/*aqui en el tbody es lo que me servira para iterar sobre una lista de tareas */}
-            {task.map ((task, index) => {
+            {tasks.map ((task, index) => {
                 return (
                     <TaskComponent
                     key={index}    // vuelve a ver el video 7 el minuto 54 que no entendiste el mapeo
-                    task={task}>
+                    task={task}
+                    complete={completeTask}
+                    remove={deleteTask}>
+                    
                     </TaskComponent>
+
+                    // luego me fui a la carpeta forms para anadir un formulario apra anadir nuevas tareas ya que si las elimino dime tu xd
             )
             }
                 )}
@@ -87,8 +121,10 @@ const TaskListComponent = () => {
         </table>
         </div>
             </div>
-            <TaskForm></TaskForm>
+           
             </div>
+            <TaskForm add={addTask}></TaskForm>    {/*acuerdate de cuando vayas a querer llamar al form aqui en el return tambien llamar la funcion para que se ejecute todo bien al darle al boton add todo lo que haga en otro sitio procurar pintarlo aca lo que vaya a usar */}
+
             {/*Todo: aplicar un form/map para renderiz ar una lista */}
        
         {/*bueno aqui basicamente llame a Taskcomponent luego llame a task que la cree en task.jsx que me traera todo lo que puse el nombre etc todo eso y luego puse el detaulttask que es todo lo que puse aqui*/}
