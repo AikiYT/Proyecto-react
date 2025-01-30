@@ -27,6 +27,10 @@ const TaskListComponent = () => {
     // control del ciclo de vida
     useEffect(() => {
         console.log('task state has been modified')
+        setTimeout(() =>{
+            setLoading(false)
+        }, 2000);
+    
         return() => {
             console.log('tasklist component is going to unmount')
         }
@@ -68,6 +72,63 @@ const TaskListComponent = () => {
 
 
 
+    const Table = () => {
+   return (
+    <table>
+    <thead>
+        <tr>
+            <th scope='col'>Title</th>
+            <th scope='col'>description</th>
+            <th scope='col'>Priority</th>
+            <th scope='col'>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {/*aqui en el tbody es lo que me servira para iterar sobre una lista de tareas */}
+        {tasks.map ((task, index) => {
+            return (
+                <TaskComponent
+                key={index}    // vuelve a ver el video 7 el minuto 54 que no entendiste el mapeo
+                task={task}
+                complete={completeTask}
+                remove={deleteTask}>
+                
+                </TaskComponent>
+
+                // luego me fui a la carpeta forms para anadir un formulario apra anadir nuevas tareas ya que si las elimino dime tu xd
+        )
+        }
+            )}
+        
+        
+        
+        
+        
+        {/*<TaskComponent task={defaultTask1}></TaskComponent>*/}
+
+        </tbody>
+    </table>
+   )
+    }
+
+
+
+let tasksTable = <Table></Table> // guarde en esta variable lo que tenga en la funcion table y mas abajo la llame para que se muestre
+if(tasks.length > 0){
+    tasksTable = <Table></Table>// este if y else dice si en tareas no hay nada es decir si la leght osea la longitud no es igual a 0 mostrara mi funcion table normal sino devolvera un h3 en el div que dira no hay tareas y u h4 que me dira otra cosa
+}else{
+    tasksTable = (
+        <div>
+    <h3>There are no taks to show</h3>
+    <h4>please create one</h4>
+    </div>)
+}
+
+const loadingStyle = {
+    color: 'grey',
+    fontSize: '30px',
+    fontWeight: 'bold'
+}
 
 
     
@@ -85,45 +146,14 @@ const TaskListComponent = () => {
             {/*Card Body (content) */}
         <div className='card-body' data-mb-perfect-scrollbar='true' style={{position: 'relative', height: '400px'}}> {/*Esta es otra forma de darle style a algo en este caso a este div pongo style{} y dentro de eso pongo lo que quiero de css en este caso position pongo luego : y entre '' lo que quiero*/}
                                      {/*este datamb quisiyoque es si la card por alguna razon se pasan de escirbir o algo de los 400px que baje con un scroll */}
-        <table>
-        <thead>
-            <tr>
-                <th scope='col'>Title</th>
-                <th scope='col'>description</th>
-                <th scope='col'>Priority</th>
-                <th scope='col'>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-                {/*aqui en el tbody es lo que me servira para iterar sobre una lista de tareas */}
-            {tasks.map ((task, index) => {
-                return (
-                    <TaskComponent
-                    key={index}    // vuelve a ver el video 7 el minuto 54 que no entendiste el mapeo
-                    task={task}
-                    complete={completeTask}
-                    remove={deleteTask}>
-                    
-                    </TaskComponent>
+{/*Todd add loading spinner */}
 
-                    // luego me fui a la carpeta forms para anadir un formulario apra anadir nuevas tareas ya que si las elimino dime tu xd
-            )
-            }
-                )}
-            
-            
-            
-            
-            
-            {/*<TaskComponent task={defaultTask1}></TaskComponent>*/}
-
-            </tbody>
-        </table>
+       {loading ? (<p style={loadingStyle}>loading tasks...</p>) : tasksTable} {/* aqui use loading  que la pagina cuando carga esta en false siempre entonces alla arriba hice la logica si loading esta false pondra ese parrafo cuando se ponga true que ya cargue se pondra el componente*/}
         </div>
             </div>
            
             </div>
-            <TaskForm add={addTask}></TaskForm>    {/*acuerdate de cuando vayas a querer llamar al form aqui en el return tambien llamar la funcion para que se ejecute todo bien al darle al boton add todo lo que haga en otro sitio procurar pintarlo aca lo que vaya a usar */}
+            <TaskForm add={addTask} length={tasks.length}></TaskForm>    {/*acuerdate de cuando vayas a querer llamar al form aqui en el return tambien llamar la funcion para que se ejecute todo bien al darle al boton add todo lo que haga en otro sitio procurar pintarlo aca lo que vaya a usar */}
 
             {/*Todo: aplicar un form/map para renderiz ar una lista */}
        

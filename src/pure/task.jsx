@@ -4,7 +4,7 @@
 import '../styles/task.scss'
 
 
-
+// modelos
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Task } from '../models/task.class';
@@ -68,7 +68,17 @@ function taskcompleted(){
     }       // esos () => antes de todo lo demas es para que no me aparezca nada mas empezar el programa sino no funcionara ninguna de estas funciones
     }
 
+    const Taskcompleted = {
+        
+        color: 'gray',
+        fontWeight: 'bold',
+        textDecoration: 'line-through'
+    }
 
+    const TaskPending = {
+       fontWeight: 'bold',
+       color: 'tomato'
+    }
 
 
 
@@ -78,8 +88,8 @@ function taskcompleted(){
 
                 // fw es font weight normal y ms=2 es margin
     return (
-       <tr className='fw-normal'>
-       <th>
+<tr className='fw-normal' style={task.completed ? Taskcompleted : TaskPending}> {/*dentro de mi class name puse style y pregunte si task.completed luego llame a mis 2 funciones taskcompleted y pending si esta completo hace algo sino la otra funcion */}
+<th>
        <span className='ms-2'> {task.name}</span>
        </th>
        
