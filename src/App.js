@@ -11,6 +11,7 @@ import Ejemplo3 from './hooks/Ejemplo3';
 import GreetingStyled from './pure/greetingStyled';
 import  Father from './components/container/father';
 import OptionalRender from './pure/optionalRender';
+import LoginFormik from './pure/forms/LoginFormik';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
        {/*<Funciongreeting name="Iverson"></Funciongreeting>*/}
        
        {/* ejemplo de compoente aqui traje la lista de tareas*/}
-       <TaskListComponent></TaskListComponent>
+       {/*<TaskListComponent></TaskListComponent>*/}
 
        {/* ejemplo de uso de hooks*/}
       {/*<Ejemplo1></Ejemplo1>*/}
@@ -69,6 +70,12 @@ function App() {
   {/* Ejemplos de renderizado condicional video 12*/}
   {/*<OptionalRender></OptionalRender>*/}
 
+
+
+
+
+  {/* ejemplo d euso de formik y yup*/}
+<LoginFormik></LoginFormik>
 
     </div>
   );
