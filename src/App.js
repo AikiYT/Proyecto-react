@@ -12,6 +12,7 @@ import GreetingStyled from './pure/greetingStyled';
 import  Father from './components/container/father';
 import OptionalRender from './pure/optionalRender';
 import LoginFormik from './pure/forms/LoginFormik';
+import RegisterFormik from './pure/forms/registerFormik';
 
 function App() {
   return (
@@ -75,7 +76,8 @@ function App() {
 
 
   {/* ejemplo d euso de formik y yup*/}
-<LoginFormik></LoginFormik>
+{/*<LoginFormik></LoginFormik>*/}
+<RegisterFormik></RegisterFormik>
 
     </div>
   );
