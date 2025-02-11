@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const loginSchema = Yup.object().shape(
@@ -20,6 +21,11 @@ const LoginFormik = () => {
         email: '', // cree este mini componente con estas variables y al llamare aqui abajo
         password: '',
     }
+    
+    const history = useNavigate();
+    
+    
+    
     return (
         <div>
             <h4>Login Formik</h4>
@@ -33,8 +39,10 @@ const LoginFormik = () => {
                     
                     
                     // guardamos los datos en el navegador local en la terminal del navegador
-                    localStorage.setItem('credentials', values) // aqui en el submit digo si ya me registre y todo guarda todo esto osea setitem en el navegador local las credentials y todos los valores que puse
+                     await localStorage.setItem('credentials', values); // aqui en el submit digo si ya me registre y todo guarda todo esto osea setitem en el navegador local las credentials y todos los valores que puse
+                    navigator('/profile')
                 }}
+                
             >
                 {/* Obtendremos props del Formik */}
                 {props => {
