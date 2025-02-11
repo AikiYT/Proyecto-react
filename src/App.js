@@ -77,7 +77,7 @@ function App() {
 
   {/* ejemplo d euso de formik y yup*/}
 {/*<LoginFormik></LoginFormik>*/}
-<RegisterFormik></RegisterFormik>
+{/*<RegisterFormik></RegisterFormik>*/}
 
     </div>
   );
