@@ -19,7 +19,7 @@ const CopyrightPage = () => {
         {/* eso es para poner la fecha si pongo getfullday o algo cambia peero en este caso solo puse ano */}
 
     
-     </Typography>
+    </Typography>
     );
 }
 

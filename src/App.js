@@ -13,6 +13,8 @@ import  Father from './components/container/father';
 import OptionalRender from './pure/optionalRender';
 import LoginFormik from './pure/forms/LoginFormik';
 import RegisterFormik from './pure/forms/registerFormik';
+import AsyncExample from './pure/AsyncExample';
+import ObservableExample from './pure/ObservableExample';
 
 function App() {
   return (
@@ -78,6 +80,12 @@ function App() {
   {/* ejemplo d euso de formik y yup*/}
 {/*<LoginFormik></LoginFormik>*/}
 {/*<RegisterFormik></RegisterFormik>*/}
+
+
+
+{/*ejemplos de procesos asinctonos */}
+{/*<AsyncExample></AsyncExample>*/}
+<ObservableExample></ObservableExample>
 
     </div>
   );
