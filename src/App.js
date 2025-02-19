@@ -15,6 +15,7 @@ import LoginFormik from './pure/forms/LoginFormik';
 import RegisterFormik from './pure/forms/registerFormik';
 import AsyncExample from './pure/AsyncExample';
 import ObservableExample from './pure/ObservableExample';
+import FetchExample from './pure/FetchExample';
 
 function App() {
   return (
@@ -85,7 +86,11 @@ function App() {
 
 {/*ejemplos de procesos asinctonos */}
 {/*<AsyncExample></AsyncExample>*/}
-<ObservableExample></ObservableExample>
+{/*<ObservableExample></ObservableExample>*/}
+
+
+{/* fetch y peticiones http video 20*/}
+<FetchExample></FetchExample>
 
     </div>
   );
