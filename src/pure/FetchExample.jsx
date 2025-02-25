@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllPagedUsers, getAllUsers, getUserDetails } from "../Services/fetchService"; // esporto lo que traje de fetch service el metodo
+import { getAllPagedUsers, getAllUsers, getUserDetails, login } from "../Services/fetchService"; // esporto lo que traje de fetch service el metodo
 
 const FetchExample = () => {
     const [users, setUsers] = useState([]); // Inicializar como array
@@ -64,6 +64,24 @@ const FetchExample = () => {
         console.log("Se ha completado la obtención de usuarios");
     });
     };
+
+
+    const authLogin = () => {
+        login('eve.holt@reqres.in', 'cityslicka') // aqui hice una funcion para el login llame el metodo login que hice en fetchservice y llamae a los parametros que tenia email y password pero en vez de llamarlos directamente igual que alla llame a como estan en la api en la parte de login succesful entra en regres.in y sabras de que hablo en los metodos post
+        .then((response) => {
+            console.log("Token:", response.token); // aca lo que recibira es un token
+            sessionStorage.setItem('token', response.token) // aqui lo guarde en el sesionstorage
+            
+        })
+        .catch((error) => {
+            alert(`Error mientras se buscaban: ${error}`);
+        })
+        .finally(() => {
+            console.log("ended obtaining login user");
+        });
+        };
+    
+
     
 
 
@@ -73,6 +91,14 @@ const FetchExample = () => {
 
     return (
     <div>
+    {/* simulando el boton de login*/}
+    <button onClick={authLogin}>Auth user</button>
+
+
+
+
+
+
     <h2>Users:</h2> {/* este mapeo basicamente digo que me mapee users que tiene todo le paso user3 que usare como mini objeto y luego llamo a los elementos del http que quiero que muestre*/}
     {users.map((user3, index) => (
         <p key={index} onClick={() => obtainDetailsUsers(user3.id)}> {/* asi puse el metodo de obtener detalles en el p y le paso el user3 para cada click que de me funcione y ahora abajo hare un div donde se mostrara esos detalles*/}
@@ -97,7 +123,7 @@ const FetchExample = () => {
         <p> name:{selectedUser.first_name}</p>
         <p>Last Name: {selectedUser.last_name}</p>
         <p>email: {selectedUser.email}</p>
-        <img alt= 'avatar' src={selectedUser.avatar} style={{height: '50px', width: '50px'}} />
+        <img alt= 'avatar' src={selectedUser.avatar} style={{height: '150px', width: '150px'}} />
         
     </div>
     )}

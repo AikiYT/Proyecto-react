@@ -16,6 +16,7 @@ import RegisterFormik from './pure/forms/registerFormik';
 import AsyncExample from './pure/AsyncExample';
 import ObservableExample from './pure/ObservableExample';
 import FetchExample from './pure/FetchExample';
+import AxiosExample from './pure/axiosExample';
 
 function App() {
   return (
@@ -90,7 +91,10 @@ function App() {
 
 
 {/* fetch y peticiones http video 20*/}
-<FetchExample></FetchExample>
+{/* <FetchExample></FetchExample> */}
+
+{/* axios */}
+<AxiosExample></AxiosExample>
 
     </div>
   );
