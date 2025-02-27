@@ -6,10 +6,10 @@ const AxiosExample = () => {
     
     const [user, setUser] = useState(null);
 
-        // useEffect(() => {
-        //  obtainUser() // lo primero que se renderize sea esto
+            useEffect(() => {
+         obtainUser() // lo primero que se renderize sea esto
         
-        // }, []);// dejo eso vacio para que se ejecute 1 vez acuerdate
+        }, []);// dejo eso vacio para que se ejecute 1 vez acuerdate
 
     
     const obtainUser = () => {
@@ -32,7 +32,7 @@ const AxiosExample = () => {
             {user != null ? // si user es diferente de null que pinte esto eso de user.title etc acuerdate uso user como objeto y luego del. lo de la api
             (
             <div>
-                <img alt='avatar' src= {user.picture.largue} /> 
+                <img alt='avatar' src= {user.picture.large} /> 
                 <h2>name:{user.title} {user.firts} {user.last}  
                 {user.email} 
                 </h2>

@@ -17,6 +17,7 @@ import AsyncExample from './pure/AsyncExample';
 import ObservableExample from './pure/ObservableExample';
 import FetchExample from './pure/FetchExample';
 import AxiosExample from './pure/axiosExample';
+import AxiosCRUDExample from './pure/axiosCRUDExample';
 
 function App() {
   return (
@@ -93,8 +94,12 @@ function App() {
 {/* fetch y peticiones http video 20*/}
 {/* <FetchExample></FetchExample> */}
 
-{/* axios */}
-<AxiosExample></AxiosExample>
+{/* axios video 21 */}
+{/* <AxiosExample></AxiosExample> */}
+
+
+{/* axios crud video 22 */}
+<AxiosCRUDExample></AxiosCRUDExample>
 
     </div>
   );
